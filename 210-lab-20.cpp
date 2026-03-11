@@ -82,9 +82,11 @@ int main() {
     //creating dynamic array of chair objects
     Chair *collection = new Chair[SIZE];
     //Chair objects populated using default constructor
-    for (int i = 0; i < SIZE; i++)
-       collection[i].print(); 
+    for (int i = 0; i < SIZE; i++) {
+        collection[i] = Chair(); 
         collection[i].print();
-    
+    }
+    //delete dynamically allocated array
+    delete [] collection;
     return 0;
 }
