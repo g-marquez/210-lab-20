@@ -20,12 +20,14 @@ private:
     double * prices;
 public:
     // constructors
+    //default constructor changed to randomly select legs and prices
     Chair() {
         prices = new double[SIZE];
-        legs = 0;
+        legs = rand() % (MAX_LEGS - MIN_LEGS + 1) + MIN_LEGS;
         for (int i = 0; i < SIZE; i++)
             prices[i] = (rand() % (MAX - MIN + 1) + MIN) / DIVISOR;
     }
+    //
     Chair(int l) {
         prices = new double[SIZE];
         legs = l;
@@ -59,6 +61,7 @@ public:
 };
 
 int main() {
+    srand(time(0)); //setting seed value for rand() 
     cout << fixed << setprecision(2);
 
     //creating pointer to first chair object
