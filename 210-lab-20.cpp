@@ -69,24 +69,21 @@ int main() {
     chairPtr->setLegs(4);
     chairPtr->setPrices(121.21, 232.32, 414.14);
     chairPtr->print();
+    delete chairPtr; //deleting dynamically allocated memory
+    chairPtr = nullptr;
 
     //creating dynamic chair object with parameter constructor
-    double priceArr[SIZE] = (525.25, 434.34, 252.52);
-    Chair *livingChair = new Chair(3);
-    livingChair->setPrices(525.25, 434.34, 252.52);
+    double priceArr[SIZE] = {525.25, 434.34, 252.52};
+    Chair *livingChair = new Chair(3, priceArr);
     livingChair->print();
     delete livingChair;
     livingChair = nullptr;
 
     //creating dynamic array of chair objects
     Chair *collection = new Chair[SIZE];
-    collection[0].setLegs(4);
-    collection[0].setPrices(441.41, 552.52, 663.63);
-    collection[1].setLegs(4);
-    collection[1].setPrices(484.84, 959.59, 868.68);
-    collection[2].setLegs(4);
-    collection[2].setPrices(626.26, 515.15, 757.57);
+    //Chair objects populated using default constructor
     for (int i = 0; i < SIZE; i++)
+       collection[i].print(); 
         collection[i].print();
     
     return 0;
