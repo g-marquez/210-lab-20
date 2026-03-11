@@ -10,6 +10,10 @@
 using namespace std;
 const int SIZE = 3;
 
+//constants for RNG in default constructor
+const int MIN = 10000, MAX = 99999, MIN_LEGS = 3, MAX_LEGS = 4;
+const double DIVISOR = 100;
+
 class Chair {
 private:
     int legs;
@@ -20,7 +24,7 @@ public:
         prices = new double[SIZE];
         legs = 0;
         for (int i = 0; i < SIZE; i++)
-            prices[i] = 0;
+            prices[i] = (rand() % (MAX - MIN + 1) + MIN) / DIVISOR;
     }
     Chair(int l) {
         prices = new double[SIZE];
