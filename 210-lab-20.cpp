@@ -68,6 +68,7 @@ int main() {
     Chair *chairPtr = new Chair;
     chairPtr->setLegs(4);
     chairPtr->setPrices(121.21, 232.32, 414.14);
+    cout << "Default chair object:" << endl;
     chairPtr->print();
     delete chairPtr; //deleting dynamically allocated memory
     chairPtr = nullptr;
@@ -75,12 +76,14 @@ int main() {
     //creating dynamic chair object with parameter constructor
     double priceArr[SIZE] = {525.25, 434.34, 252.52};
     Chair *livingChair = new Chair(3, priceArr);
+    cout << "Chair object made with parameter constructor:" << endl;
     livingChair->print();
     delete livingChair;
     livingChair = nullptr;
 
     //creating dynamic array of chair objects
     Chair *collection = new Chair[SIZE];
+    cout << "Array of chair objects made with default cnstructor:" << endl;
     //Chair objects populated using default constructor
     for (int i = 0; i < SIZE; i++) {
         collection[i] = Chair(); 
